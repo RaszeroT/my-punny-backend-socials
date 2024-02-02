@@ -64,6 +64,22 @@ const UserController = {
       res.status(500).json(error);
     }
   },
+
+  // add friend to user
+  async addFriend(req, res) {
+    try {
+      const userID = req.params.userID;
+      const userData = await User.findOneAndUpdate(
+        { _id: userID },
+        { $addToSet: { friends: req.params.friendID } },
+        { new: true }
+      );
+      res.json(userData);
+    } catch (error) {
+      console.log(error);
+      res.status(500).json(error);
+    }
+  },
 };
 
 module.exports = UserController;
