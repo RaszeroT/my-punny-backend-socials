@@ -15,9 +15,10 @@ const postSchema = new Schema(
   },
   {
     timestamps: true,
-    toJSON: { 
-        getters: true, 
-        virtuals: true },
+    toJSON: {
+      getters: true,
+      virtuals: true,
+    },
   }
 );
 
