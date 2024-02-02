@@ -1,11 +1,17 @@
-const router = require('express').Router()
+const router = require("express").Router();
 
 const {
-    getPosts,
-    createPost
-} = require('../../controllers/post-controller')
+  getPosts,
+  createPost,
+  getPostById,
+  updatePost,
+  deletePost
+} = require("../../controllers/post-controller");
 
-// /api/users
-router.route('/').get(getPosts).post(createPost)
+// /api/posts
+router.route("/").get(getPosts).post(createPost);
 
-module.exports = router
+// /api/posts/:postID
+router.route("/:postID").get(getPostById).put(updatePost).delete(deletePost);
+
+module.exports = router;

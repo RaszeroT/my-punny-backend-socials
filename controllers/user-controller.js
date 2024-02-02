@@ -54,16 +54,16 @@ const UserController = {
   },
 
   // delete user
-  async deleteUser(req,res) {
+  async deleteUser(req, res) {
     try {
       const userID = req.params.userID;
-      const user = await User.findOneAndDelete({_id: userID})
-      res.json({message: 'User successfully deleted!'})
+      const user = await User.findOneAndDelete({ _id: userID });
+      res.json({ message: "User successfully deleted!" });
     } catch (error) {
       console.log(error);
       res.status(500).json(error);
     }
-  }
+  },
 };
 
 module.exports = UserController;
