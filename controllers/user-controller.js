@@ -6,7 +6,7 @@ const UserController = {
   async getUsers(req, res) {
     try {
       const users = await User.find();
-      res.json(users)
+      res.json(users);
     } catch (error) {
       console.log(error);
       res.status(500).json(error);
@@ -27,17 +27,31 @@ const UserController = {
   // get user by id
   async getUserById(req, res) {
     try {
-      const userID = req.params.userID
-      const user = await User.findById(userID)
-      res.json(user)
-      console.log("UserID info:",userID);
+      const userID = req.params.userID;
+      const user = await User.findById(userID);
+      res.json(user);
     } catch (error) {
       console.log(error);
       res.status(500).json(error);
     }
   },
 
-
+  // update user
+  async updateUser(req, res) {
+    try {
+      const userID = req.params.userID;
+      const newUserInfo = await User.findOneAndUpdate(
+        { _id: userID },
+        req.body,
+        // show updated data
+        { new: true }
+      );
+      res.json(newUserInfo);
+    } catch (error) {
+      console.log(error);
+      res.status(500).json(error);
+    }
+  },
 };
 
 module.exports = UserController;
