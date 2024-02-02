@@ -21,11 +21,11 @@ const userSchema = new Schema(
         },
       },
     },
-    // // link thoughts to user
+    // // link posts to user
     // thoughts: [
     //   {
     //     type: Schema.Types.ObjectId,
-    //     ref: "Thought",
+    //     ref: "Post",
     //   },
     // ],
     // // link friends to User
