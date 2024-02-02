@@ -6,7 +6,8 @@ const {
   getPostById,
   updatePost,
   deletePost,
-  createReaction
+  createReaction,
+  deleteReaction
 } = require("../../controllers/post-controller");
 
 // /api/posts
@@ -19,5 +20,6 @@ router.route("/:postID").get(getPostById).put(updatePost).delete(deletePost);
 router.route("/:postID/reactions").post(createReaction)
 
 // /api/posts/:postID/reactions/:reactionID
+router.route("/:postID/reactions/:reactionID").delete(deleteReaction)
 
 module.exports = router;

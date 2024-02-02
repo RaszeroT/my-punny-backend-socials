@@ -78,6 +78,21 @@ const PostController = {
       res.status(500).json(error);
     }
   },
+
+  // delete reaction
+  async deleteReaction(req, res) {
+    try {
+      const postID = req.params.postID;
+      const post = await Post.findOneAndUpdate(
+        { _id: postID },
+        { $pull: { reactions: req.body } }
+      );
+      res.json({ message: "Reaction has been successfully deleted!" });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json(error);
+    }
+  },
 };
 
 module.exports = PostController;
