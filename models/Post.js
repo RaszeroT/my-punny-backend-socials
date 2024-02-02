@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const reactionSchema = require("./Reaction");
 
 // Schema to create Post model
 const postSchema = new Schema(
@@ -12,6 +13,7 @@ const postSchema = new Schema(
       required: true,
       minLength: 1,
     },
+      reactions: [reactionSchema],
   },
   {
     timestamps: true,

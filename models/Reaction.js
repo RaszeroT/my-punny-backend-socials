@@ -23,7 +23,5 @@ const reactionSchema = new Schema(
     }}
 )
 
-// initialize the post model
-const Reaction = model('Reaction', reactionSchema)
 //export model
-module.exports = Reaction;
+module.exports = reactionSchema;

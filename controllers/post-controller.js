@@ -63,6 +63,21 @@ const PostController = {
       res.status(500).json(error);
     }
   },
+
+  // create reaction
+  async createReaction(req, res) {
+    try {
+      const postID = req.params.postID;
+      const post = await Post.findOneAndUpdate(
+        { _id: postID },
+        { $addToSet: { reactions: req.body } }
+      );
+      res.json(post);
+    } catch (error) {
+      console.log(error);
+      res.status(500).json(error);
+    }
+  },
 };
 
 module.exports = PostController;
