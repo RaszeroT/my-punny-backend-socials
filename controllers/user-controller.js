@@ -80,6 +80,22 @@ const UserController = {
       res.status(500).json(error);
     }
   },
+
+  // delete friend
+  async deleteFriend(req, res) {
+    try {
+      const userID = req.params.userID;
+      const userData = await User.findOneAndUpdate(
+        { _id: userID },
+        { $pull: { friends: req.params.friendID } },
+        { new: true }
+      );
+      res.json({ message: 'Friend removed successfully!'});
+    } catch (error) {
+      console.log(error);
+      res.status(500).json(error);
+    }
+  },
 };
 
 module.exports = UserController;
