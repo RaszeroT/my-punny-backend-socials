@@ -1,4 +1,5 @@
 const { User } = require("../models");
+const { findById } = require("../models/User");
 
 const UserController = {
   // get users
@@ -22,6 +23,21 @@ const UserController = {
       res.status(500).json(error);
     }
   },
+
+  // get user by id
+  async getUserById(req, res) {
+    try {
+      const userID = req.params.userID
+      const user = await User.findById(userID)
+      res.json(user)
+      console.log("UserID info:",userID);
+    } catch (error) {
+      console.log(error);
+      res.status(500).json(error);
+    }
+  },
+
+
 };
 
 module.exports = UserController;
