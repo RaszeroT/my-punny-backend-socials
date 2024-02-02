@@ -21,25 +21,29 @@ const userSchema = new Schema(
         },
       },
     },
-    // // link posts to user
-    // thoughts: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: "Post",
-    //   },
-    // ],
-    // // link friends to User
-    // friends: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: "User",
-    //   },
-    // ],
+    // link posts to user
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Post",
+      },
+    ],
+    // link friends to User
+    friends: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
   },
   //  convert to JSON
   { toJSON: { virtuals: true } }
 );
 
+// define vituals for friendCount
+userSchema.virtual('friendCount').get(function(){
+  return this.friends.length
+})
 // initialize the User model
 const User = model('User', userSchema)
 // export model
