@@ -29,10 +29,13 @@ This is a backend socials application where the User can create, edit, and delet
 ## Installation
 
 To install this application please fork this repo. Then, run in terminal:
+
 //~ npm init -y
+
 //~ npm i
 
-Then to run the application please run in terminal: 
+To run the application please run in terminal: 
+
 //~ npm start
 
 ## User Information

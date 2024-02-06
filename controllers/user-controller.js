@@ -1,5 +1,5 @@
 const { User } = require("../models");
-const { findById } = require("../models/User");
+const { findById } = require("../models/User"); // what is this?? TODO:
 
 const UserController = {
   // get users
