@@ -66,7 +66,7 @@ mongoose@8.1.1
 
 ## Link to live site:
 
-<a href="https://theblog-raszerot-40892167d83a.herokuapp.com/">The Backend Social</a>
+<a href="">This is a backend application and does not have a deployed link</a>
 
 ## Video Tutorial:
 
